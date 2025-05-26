@@ -167,7 +167,25 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Sprint"",
                     ""type"": ""Button"",
                     ""id"": ""641cd816-40e6-41b4-8c3d-04687c349290"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""StageChange1"",
+                    ""type"": ""Button"",
+                    ""id"": ""af3e9722-589c-4475-86a7-2c1382695906"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""StageChange2"",
+                    ""type"": ""Button"",
+                    ""id"": ""3a513b3b-aa39-4f9d-8044-626c846bb483"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -545,6 +563,28 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""594aeeee-1b8a-47b0-878d-9523d95f25c4"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""StageChange1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad28f5ef-6640-4bba-bf01-cc6b1463ac11"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""StageChange2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1141,6 +1181,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_Previous = m_Player.FindAction("Previous", throwIfNotFound: true);
         m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_StageChange1 = m_Player.FindAction("StageChange1", throwIfNotFound: true);
+        m_Player_StageChange2 = m_Player.FindAction("StageChange2", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1243,6 +1285,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Previous;
     private readonly InputAction m_Player_Next;
     private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_StageChange1;
+    private readonly InputAction m_Player_StageChange2;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1290,6 +1334,14 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Sprint".
         /// </summary>
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/StageChange1".
+        /// </summary>
+        public InputAction @StageChange1 => m_Wrapper.m_Player_StageChange1;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/StageChange2".
+        /// </summary>
+        public InputAction @StageChange2 => m_Wrapper.m_Player_StageChange2;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1343,6 +1395,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
+            @StageChange1.started += instance.OnStageChange1;
+            @StageChange1.performed += instance.OnStageChange1;
+            @StageChange1.canceled += instance.OnStageChange1;
+            @StageChange2.started += instance.OnStageChange2;
+            @StageChange2.performed += instance.OnStageChange2;
+            @StageChange2.canceled += instance.OnStageChange2;
         }
 
         /// <summary>
@@ -1381,6 +1439,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
+            @StageChange1.started -= instance.OnStageChange1;
+            @StageChange1.performed -= instance.OnStageChange1;
+            @StageChange1.canceled -= instance.OnStageChange1;
+            @StageChange2.started -= instance.OnStageChange2;
+            @StageChange2.performed -= instance.OnStageChange2;
+            @StageChange2.canceled -= instance.OnStageChange2;
         }
 
         /// <summary>
@@ -1744,6 +1808,20 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSprint(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "StageChange1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnStageChange1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "StageChange2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnStageChange2(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 483956894}
   - component: {fileID: 483956896}
   - component: {fileID: 483956895}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FangEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,12 +829,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888185105}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1615940490}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &888852405
 GameObject:
@@ -846,7 +846,8 @@ GameObject:
   m_Component:
   - component: {fileID: 888852406}
   - component: {fileID: 888852408}
-  m_Layer: 6
+  - component: {fileID: 888852409}
+  m_Layer: 0
   m_Name: ActionController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -884,6 +885,26 @@ MonoBehaviour:
   mMoveValue: {x: 0, y: 0}
   mJump: 0
   mAttack: 0
+--- !u!114 &888852409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888852405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38021e78c2994474d8775a8c3383e1b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mChangeing: 0
+  mCutoffRadius: 0
+  mCurrentFrontStage: 0
+  mStageA: {fileID: 1060932171}
+  mStageB: {fileID: 1615940489}
+  mCameraA: {fileID: 519420031}
+  mCameraB: {fileID: 1432064809}
+  mRenderTexture: {fileID: 1923188729}
 --- !u!1 &1060932171
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,6 +936,7 @@ Transform:
   m_Children:
   - {fileID: 1648915827}
   - {fileID: 2041974614}
+  - {fileID: 1391112000}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1069052072
@@ -1099,12 +1121,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391111998}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1060932172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1432064806
 GameObject:
@@ -1258,7 +1280,7 @@ GameObject:
   - component: {fileID: 1534214718}
   - component: {fileID: 1534214724}
   - component: {fileID: 1534214723}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1636,6 +1658,7 @@ Transform:
   m_Children:
   - {fileID: 1609748807}
   - {fileID: 590596281}
+  - {fileID: 888185107}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1648915824
@@ -1933,7 +1956,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2002382630}
   - component: {fileID: 2002382631}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FangAnimatorController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2139,8 +2162,6 @@ SceneRoots:
   - {fileID: 1432064810}
   - {fileID: 619394802}
   - {fileID: 1534214722}
-  - {fileID: 1391112000}
-  - {fileID: 888185107}
   - {fileID: 1060932172}
   - {fileID: 1615940490}
   - {fileID: 1069052076}
